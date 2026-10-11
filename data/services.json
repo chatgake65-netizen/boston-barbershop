@@ -1,0 +1,34 @@
+{
+  "services": [
+    {
+      "name": "Classic Haircut",
+      "description": "Consultation, precision cut, wash and styling.",
+      "price": 5000
+    },
+    {
+      "name": "Haircut & Beard",
+      "description": "Full look: haircut plus beard shaping and care.",
+      "price": 7000
+    },
+    {
+      "name": "Beard Trim",
+      "description": "Shaping, trimming and clean contour lines.",
+      "price": 3000
+    },
+    {
+      "name": "Buzz Cut",
+      "description": "One length, clean edges, fast and neat.",
+      "price": 3500
+    },
+    {
+      "name": "Kids Haircut",
+      "description": "Gentle and patient approach for boys.",
+      "price": 4000
+    },
+    {
+      "name": "Royal Shave",
+      "description": "Traditional straight-razor shave with hot towels.",
+      "price": 4500
+    }
+  ]
+}
