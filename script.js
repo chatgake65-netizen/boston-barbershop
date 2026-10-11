@@ -451,6 +451,15 @@ onScroll();
 // ==========================================================
 const servicesList = document.querySelector(".services__list");
 
+// Данные об услугах (чтобы перерисовывать при смене языка)
+let servicesData = [];
+
+// Берёт текст на текущем языке: name_ru, name_kk или обычный name
+function pickText(item, field) {
+  const suffix = currentLang === "ru" ? "_ru" : currentLang === "kk" ? "_kk" : "";
+  return item[field + suffix] || item[field];
+}
+
 // 5000 -> "5 000"
 function formatPrice(number) {
   return String(number).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₸";
@@ -468,10 +477,10 @@ function renderServices(services) {
     info.className = "service__info";
 
     const title = document.createElement("h3");
-    title.textContent = item.name;
+        title.textContent = pickText(item, "name");
 
     const description = document.createElement("p");
-    description.textContent = item.description;
+       description.textContent = pickText(item, "description");
 
     info.appendChild(title);
     info.appendChild(description);
@@ -500,7 +509,7 @@ function renderServices(services) {
   services.forEach(function (item) {
     const option = document.createElement("option");
     option.value = item.name;
-    option.textContent = item.name + " — " + formatPrice(item.price);
+    option.textContent = pickText(item, "name") + " — " + formatPrice(item.price);
     serviceInput.appendChild(option);
   });
 }
@@ -512,7 +521,8 @@ fetch("data/services.json", { cache: "no-store" })
   })
   .then(function (data) {
     if (data.services && data.services.length > 0) {
-      renderServices(data.services);
+      servicesData = data.services;
+      renderServices(servicesData);
     }
   })
   .catch(function (error) {
@@ -573,7 +583,10 @@ function applyLanguage(lang) {
   document.querySelectorAll(".lang button").forEach(function (button) {
     button.classList.toggle("is-active", button.dataset.lang === lang);
   });
-
+  // Перерисовываем услуги на выбранном языке
+  if (servicesData.length > 0) {
+    renderServices(servicesData);
+  }
   // Запоминаем выбор
   try {
     localStorage.setItem("lang", lang);
