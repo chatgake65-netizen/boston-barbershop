@@ -1145,3 +1145,32 @@ button {
   width: 300px;
   height: 300px;
 }
+
+/* ==========================================================
+   ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА
+   ========================================================== */
+.lang {
+  display: flex;
+  gap: 4px;
+}
+
+.lang button {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--gray);
+  padding: 8px 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  transition: color 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.lang button:hover {
+  color: var(--bronze);
+  border-color: var(--bronze);
+}
+
+.lang button.is-active {
+  background: var(--bronze);
+  border-color: var(--bronze);
+  color: var(--black);
+}
