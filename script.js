@@ -445,3 +445,77 @@ function onScroll() {
 window.addEventListener("scroll", onScroll);
 window.addEventListener("resize", updateProgress);
 onScroll();
+
+// ==========================================================
+// 13. Услуги и цены берутся из файла data/services.json
+// ==========================================================
+const servicesList = document.querySelector(".services__list");
+
+// 5000 -> "5 000"
+function formatPrice(number) {
+  return String(number).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₸";
+}
+
+function renderServices(services) {
+  // Список услуг на странице
+  servicesList.textContent = "";
+
+  services.forEach(function (item) {
+    const li = document.createElement("li");
+    li.className = "service";
+
+    const info = document.createElement("div");
+    info.className = "service__info";
+
+    const title = document.createElement("h3");
+    title.textContent = item.name;
+
+    const description = document.createElement("p");
+    description.textContent = item.description;
+
+    info.appendChild(title);
+    info.appendChild(description);
+
+    const line = document.createElement("span");
+    line.className = "service__line";
+
+    const price = document.createElement("span");
+    price.className = "service__price";
+    price.textContent = formatPrice(item.price);
+
+    li.appendChild(info);
+    li.appendChild(line);
+    li.appendChild(price);
+    servicesList.appendChild(li);
+  });
+
+  // Выпадающий список в форме записи
+  serviceInput.textContent = "";
+
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Choose a service";
+  serviceInput.appendChild(placeholder);
+
+  services.forEach(function (item) {
+    const option = document.createElement("option");
+    option.value = item.name;
+    option.textContent = item.name + " — " + formatPrice(item.price);
+    serviceInput.appendChild(option);
+  });
+}
+
+fetch("data/services.json", { cache: "no-store" })
+  .then(function (response) {
+    if (!response.ok) throw new Error("services.json not found");
+    return response.json();
+  })
+  .then(function (data) {
+    if (data.services && data.services.length > 0) {
+      renderServices(data.services);
+    }
+  })
+  .catch(function (error) {
+    // Если файл не загрузился, остаётся старый список из index.html
+    console.warn("Services were not loaded from file:", error);
+  });
