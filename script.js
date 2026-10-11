@@ -550,3 +550,49 @@ fetch("data/contact.json", { cache: "no-store" })
   .catch(function (error) {
     console.warn("Contacts were not loaded from file:", error);
   });
+
+// ==========================================================
+// 15. Переключатель языка (EN / RU / KZ)
+// ==========================================================
+let currentLang = "en";
+
+function applyLanguage(lang) {
+  if (!TRANSLATIONS[lang]) lang = "en";
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  // Подставляем переводы в элементы с data-i18n
+  document.querySelectorAll("[data-i18n]").forEach(function (element) {
+    const value = TRANSLATIONS[lang][element.dataset.i18n];
+    if (value !== undefined) {
+      element.innerHTML = value;
+    }
+  });
+
+  // Подсвечиваем активную кнопку языка
+  document.querySelectorAll(".lang button").forEach(function (button) {
+    button.classList.toggle("is-active", button.dataset.lang === lang);
+  });
+
+  // Запоминаем выбор
+  try {
+    localStorage.setItem("lang", lang);
+  } catch (error) {
+    // если браузер не разрешает сохранение, просто не запоминаем
+  }
+}
+
+document.querySelectorAll(".lang button").forEach(function (button) {
+  button.addEventListener("click", function () {
+    applyLanguage(button.dataset.lang);
+  });
+});
+
+// При загрузке берём сохранённый язык или английский
+let savedLang = "en";
+try {
+  savedLang = localStorage.getItem("lang") || "en";
+} catch (error) {
+  savedLang = "en";
+}
+applyLanguage(savedLang);
