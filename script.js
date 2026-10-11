@@ -519,3 +519,34 @@ fetch("data/services.json", { cache: "no-store" })
     // Если файл не загрузился, остаётся старый список из index.html
     console.warn("Services were not loaded from file:", error);
   });
+
+// ==========================================================
+// 14. Контакты и номер WhatsApp берутся из data/contact.json
+// ==========================================================
+fetch("data/contact.json", { cache: "no-store" })
+  .then(function (response) {
+    if (!response.ok) throw new Error("contact.json not found");
+    return response.json();
+  })
+  .then(function (contact) {
+    // Номер WhatsApp: оставляем только цифры
+    const digits = String(contact.whatsapp || "").replace(/\D/g, "");
+    if (digits.length >= 10) {
+      WHATSAPP_NUMBER = digits;
+    }
+
+    // Карточки контактов: адрес, телефон, часы, соцсети (по порядку)
+    const values = [contact.address, contact.phone, contact.hours, contact.social];
+    const boxes = document.querySelectorAll(".contact__card .placeholder");
+
+    boxes.forEach(function (box, index) {
+      const value = (values[index] || "").trim();
+      if (value !== "") {
+        box.textContent = value;
+        box.classList.remove("placeholder");
+      }
+    });
+  })
+  .catch(function (error) {
+    console.warn("Contacts were not loaded from file:", error);
+  });
