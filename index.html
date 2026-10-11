@@ -18,20 +18,26 @@
   <!-- Полоса прогресса прокрутки -->
   <div class="progress" id="progress" aria-hidden="true"></div>
   <!-- ===================== 1. HEADER ===================== -->
-  <header class="header" id="header">
+    <header class="header" id="header">
     <div class="container header__inner">
       <a href="#home" class="logo">BOSTON<span>BARBERSHOP</span></a>
 
       <nav class="nav" id="nav">
         <ul class="nav__list">
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#services" class="nav__link">Services</a></li>
-          <li><a href="#barbers" class="nav__link">Barbers</a></li>
-          <li><a href="#gallery" class="nav__link">Gallery</a></li>
-          <li><a href="#testimonials" class="nav__link">Reviews</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
+          <li><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="#services" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="#barbers" class="nav__link" data-i18n="nav.barbers">Barbers</a></li>
+          <li><a href="#gallery" class="nav__link" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="#testimonials" class="nav__link" data-i18n="nav.reviews">Reviews</a></li>
+          <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
         </ul>
-        <a href="#booking" class="btn btn--primary nav__cta">Book Now</a>
+        <a href="#booking" class="btn btn--primary nav__cta" data-i18n="nav.book">Book Now</a>
+
+        <div class="lang" id="lang">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="ru">RU</button>
+          <button type="button" data-lang="kk">KZ</button>
+        </div>
       </nav>
 
       <!-- Кнопка-«бургер» для телефона -->
@@ -46,18 +52,18 @@
   <main>
 
     <!-- ===================== 2. HERO ===================== -->
-    <section class="hero" id="home">
+        <section class="hero" id="home">
       <div class="hero__bg">
         <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80" alt="Barber working on a client's haircut">
       </div>
       <div class="hero__overlay"></div>
       <div class="container hero__content">
-        <p class="eyebrow">Premium Barbershop for Men</p>
-        <h1 class="hero__title">YOUR STYLE.<br>YOUR RULES.</h1>
-        <p class="hero__text">Precision cuts, sharp beards and a calm, confident atmosphere. Welcome to BOSTON BARBERSHOP.</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Premium Barbershop for Men</p>
+        <h1 class="hero__title" data-i18n="hero.title">YOUR STYLE.<br>YOUR RULES.</h1>
+        <p class="hero__text" data-i18n="hero.text">Precision cuts, sharp beards and a calm, confident atmosphere. Welcome to BOSTON BARBERSHOP.</p>
         <div class="hero__buttons">
-          <a href="#booking" class="btn btn--primary">Book Appointment</a>
-          <a href="#services" class="btn btn--outline">View Services</a>
+          <a href="#booking" class="btn btn--primary" data-i18n="hero.book">Book Appointment</a>
+          <a href="#services" class="btn btn--outline" data-i18n="hero.services">View Services</a>
         </div>
       </div>
       <a href="#about" class="hero__scroll" aria-label="Scroll down">
@@ -65,7 +71,6 @@
         <i></i>
       </a>
     </section>
-
     <!-- ===================== 3. ABOUT ===================== -->
     <section class="section about" id="about">
       <div class="container about__grid">
