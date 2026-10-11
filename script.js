@@ -7,7 +7,7 @@ document.documentElement.classList.add("js");
 
 // ВАШ НОМЕР WhatsApp: только цифры, с кодом страны, без плюса и пробелов.
 // Пример для Казахстана: "77011234567"
-const WHATSAPP_NUMBER = "7XXXXXXXXXX";
+let WHATSAPP_NUMBER = "7XXXXXXXXXX";
 
 // ---------- Находим нужные элементы на странице ----------
 const header = document.getElementById("header");
