@@ -2,32 +2,56 @@
   "services": [
     {
       "name": "Classic Haircut",
+      "name_ru": "Классическая стрижка",
+      "name_kk": "Классикалық қырқым",
       "description": "Consultation, precision cut, wash and styling.",
+      "description_ru": "Консультация, точная стрижка, мытьё и укладка.",
+      "description_kk": "Кеңес, нақты қырқым, жуу және сәндеу.",
       "price": 5000
     },
     {
       "name": "Haircut & Beard",
+      "name_ru": "Стрижка и борода",
+      "name_kk": "Шаш және сақал",
       "description": "Full look: haircut plus beard shaping and care.",
+      "description_ru": "Полный образ: стрижка, оформление бороды и уход.",
+      "description_kk": "Толық бейне: шаш қырқу, сақалды пішімдеу және күтім.",
       "price": 7000
     },
     {
       "name": "Beard Trim",
+      "name_ru": "Оформление бороды",
+      "name_kk": "Сақал пішімдеу",
       "description": "Shaping, trimming and clean contour lines.",
+      "description_ru": "Придание формы, подравнивание и чёткие контуры.",
+      "description_kk": "Пішін беру, қиып теңестіру және анық контурлар.",
       "price": 3000
     },
     {
       "name": "Buzz Cut",
+      "name_ru": "Стрижка под машинку",
+      "name_kk": "Машинкамен қырқу",
       "description": "One length, clean edges, fast and neat.",
+      "description_ru": "Одна длина, чистые края, быстро и аккуратно.",
+      "description_kk": "Бір ұзындық, таза жиектер, жылдам әрі ұқыпты.",
       "price": 3500
     },
     {
       "name": "Kids Haircut",
+      "name_ru": "Детская стрижка",
+      "name_kk": "Балалар қырқымы",
       "description": "Gentle and patient approach for boys.",
+      "description_ru": "Бережный и терпеливый подход к мальчикам.",
+      "description_kk": "Ұлдарға жұмсақ әрі шыдамды көзқарас.",
       "price": 4000
     },
     {
       "name": "Royal Shave",
+      "name_ru": "Королевское бритьё",
+      "name_kk": "Корольдік қыру",
       "description": "Traditional straight-razor shave with hot towels.",
+      "description_ru": "Традиционное бритьё опасной бритвой с горячими полотенцами.",
+      "description_kk": "Ыстық сүлгімен дәстүрлі ұстарамен қыру.",
       "price": 4500
     }
   ]
